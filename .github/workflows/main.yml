@@ -1,0 +1,19 @@
+name: Desplegar App
+on:
+  push:
+    branches: [ main ] # Se ejecuta al subir cambios a la rama principal
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar código
+        uses: actions/checkout@v3
+
+      - name: Instalar dependencias y Construir
+        run: |
+          npm install
+          npm run build
+
+      - name: Desplegar (ejemplo ficticio)
+        run: echo "Aquí iría el comando para subir a tu servidor"
